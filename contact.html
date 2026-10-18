@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRIDE — Contact Us</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -14,11 +15,12 @@
         <div class="logo-area">
             <img src="images/favicon.svg" alt="STRIDE Logo" width="40" height="40">
         </div>
-        <nav aria-label="Main navigation">
+        <nav>
             <a href="index.html">Home</a>
-            <a href="catalogue.html">Catalogue</a>
+            <a href="catalogue.html" >Catalogue</a>
             <a href="about.html">About Team</a>
-            <a href="contact.html" aria-current="page" class="active">Contact Us</a>
+            <a href="contact.html" class="active">Contact Us</a>
+            <a href="registration.html">Create Account</a>
         </nav>
     </header>
 
@@ -29,46 +31,69 @@
                 <p>Have questions about sizes or delivery? Use this static demonstration form.</p>
             </div>
 
-            <p id="demo-note" class="demo-note">
+            <p class="demo-note">
                 Demo only. Your information is not sent or stored. Use sample details.
             </p>
 
-            <form action="demo-result.html" method="get" aria-describedby="demo-note" class="contact-form">
-                <div class="form-group">
-                    <label for="full-name">Your Name:</label>
-                    <input id="full-name" type="text" autocomplete="name" placeholder="Palaenshe Palanshiev" required>
+            <form class="contact-form needs-validation" novalidate>
+                <div class="form-group position-relative">
+                    <label for="contactName">Your Name:</label>
+                    <input type="text" id="contactName" placeholder="Palaenshe Palanshiev" required minlength="2">
+                    <div class="invalid-tooltip">Minimum 2 characters required.</div>
+                    <div class="valid-tooltip">Looks good!</div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Your Email:</label>
-                    <input id="email" type="email" autocomplete="email" placeholder="palaenshe@example.com" required>
+
+                <div class="form-group position-relative">
+                    <label for="contactEmail">Your Email:</label>
+                    <input type="email" id="contactEmail" placeholder="palaenshe@example.com" required>
+                    <div class="invalid-tooltip">Please enter a valid email.</div>
+                    <div class="valid-tooltip">Valid email!</div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <div class="form-group position-relative">
+                    <label for="contactMessage">Your Message:</label>
+                    <textarea id="contactMessage" rows="5" placeholder="Write your message here..." required minlength="10" maxlength="500"></textarea>
+                    <div class="invalid-tooltip">Message must be 10-500 characters.</div>
+                    <div class="valid-tooltip">Looks good!</div>
                 </div>
-                <button type="submit" class="btn-primary btn-full">Check Demo Form</button>
+
+                <button type="submit" class="btn-primary w-100 mt-3 border-0 py-2">Check Demo Form</button>
             </form>
         </section>
 
-        <!-- Native HTML Interaction: FAQ without JS -->
         <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
+            <h2 style="text-align: center; margin-bottom: 20px;">Frequently Asked Questions</h2>
             
-            <details class="faq-item">
-                <summary class="faq-summary">How long does delivery take?</summary>
-                <p class="faq-answer">We deliver nationwide within 1-2 business days.</p>
+            <details class="faq-item" style="background: #1a162b; padding: 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <summary class="faq-summary" style="font-weight: bold; cursor: pointer; color: #f0a500;">How long does delivery take?</summary>
+                <p class="faq-answer" style="margin-top: 10px; color: #b3a8c1; font-size: 14px;">We deliver nationwide within 1-2 business days.</p>
             </details>
 
-            <details class="faq-item">
-                <summary class="faq-summary">What is your return policy?</summary>
-                <p class="faq-answer">You can return any pair within 14 days if it has not been worn outdoors.</p>
+            <details class="faq-item" style="background: #1a162b; padding: 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <summary class="faq-summary" style="font-weight: bold; cursor: pointer; color: #f0a500;">What is your return policy?</summary>
+                <p class="faq-answer" style="margin-top: 10px; color: #b3a8c1; font-size: 14px;">You can return any pair within 14 days if it has not been worn outdoors.</p>
             </details>
         </section>
     </main>
-
+    
     <footer>
         <p>&copy; 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.needs-validation');
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    </script>
 </body>
 </html>
