@@ -1,44 +1,28 @@
-STRIDE — Shoes Shop
-A responsive static website for the STRIDE shoe store created for Assignment #3 (Responsive Web Design).
-Project Overview
-STRIDE is an online store for athletic, urban, and seasonal footwear. The website includes responsive layouts, CSS Grid product displays, mobile-first design, an interactive FAQ, and a static contact demonstration form.
-Team Ownership
-Owner	Student Name	Assigned Page	Description
-Student 1	Yernur	`index.html`	Homepage with hero section, brand stats, and best sellers
-Student 2	Abylai	`catalogue.html`	Product catalogue with 6-item CSS Grid and filters
-Student 3	Ramazan	`about.html`, `contact.html`, `demo\_result.html`	About team story, contact form, FAQ, and demo result page
-Folder Structure
-```text
-shoes-shop/
-├── index.html
-├── catalogue.html
-├── about.html
-├── contact.html
-├── demo\_result.html
-├── README.md
-├── css/
-│   ├── style.css
-│   └── responsive.css
-└── images/
-    ├── favicon.svg
-    ├── urbanShoes1.png
-    ├── athleticRunningShoes1.png
-    ├── autumnHit.png
-    ├── owens.jpg
-    ├── saint.webp
-    └── peg.webp
-```
-Features
-Semantic HTML5: Built using semantic tags (`header`, `nav`, `main`, `section`, `article`, `footer`).
-Responsive Layouts: Uses Flexbox for navigation and Hero sections, and CSS Grid for product listings.
-Mobile-First CSS: Styled with fluid sizing (`rem`, `clamp()`) and media queries in `responsive.css`.
-Pure HTML Interactivity: FAQ accordions built using native `<details>` and `<summary>` tags without JavaScript.
-Static Form Demo: Contact form with HTML5 native validation redirecting to `demo\_result.html`.
-Setup Instructions
-Clone or download the repository.
-Open `index.html` directly in any web browser.
-Test layout responsiveness using browser Developer Tools (F12) across mobile, tablet, and desktop viewports.
-Static Site Limitations
-The contact form is for static UI demonstration only and does not store or send user data.
-Shopping cart buttons ("Add to Cart") are static layout elements.
-No JavaScript or external CSS frameworks were used in compliance with assignment rules.
+# STRIDE Shoes Shop - Assignment 5
+
+## Team Members
+- Yernur (Group: [Insert Your Group]) - Contact Form, Bootstrap integration, Individual Part 2.
+- Abylai (Group: [Insert Group]) - Registration Form, CSS Grid, Individual Part 2.
+- Ramazan (Group: [Insert Group]) - JavaScript Passwords Validation, Documentation, Individual Part 2.
+
+## Website Topic
+STRIDE - E-commerce store for urban and off-road shoes. 
+
+## Form Validation Testing Results
+
+| Test Case | Expected Result | Actual Result |
+| :--- | :--- | :--- |
+| **Empty required fields** | Form submission prevented, Bootstrap invalid feedback shown (red border). | Passed |
+| **Invalid Email** | Submission prevented, "Please enter a valid email" tooltip shown. | Passed |
+| **Short Message (<10 chars)** | Prevented, length validation error tooltip shown. | Passed |
+| **Password < 8 chars** | Prevented, native HTML5 & Bootstrap minlength error displayed. | Passed |
+| **Passwords do not match** | JS script sets CustomValidity, prevents submission, shows mismatch error. | Passed |
+| **No country selected** | Prevented, select field shows invalid state. | Passed |
+| **All values valid** | Form gets `.was-validated` class, green success alert displayed. | Passed |
+| **Reset Form** | Clicking "Reset" clears all inputs, removes errors, hides success message. | Passed |
+| **Mobile Layout** | Grid layout collapses to 1 column, inputs take 100% width, fully responsive. | Passed |
+
+## Instructions
+1. Open `contact.html` to test the Contact Form.
+2. Open `registration.html` to test the Registration Form.
+3. Open the `individual_yernur` folder for Part 2 JavaScript tasks.
