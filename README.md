@@ -21,8 +21,3 @@ STRIDE - E-commerce store for urban and off-road shoes.
 | **All values valid** | Form gets `.was-validated` class, green success alert displayed. | Passed |
 | **Reset Form** | Clicking "Reset" clears all inputs, removes errors, hides success message. | Passed |
 | **Mobile Layout** | Grid layout collapses to 1 column, inputs take 100% width, fully responsive. | Passed |
-
-## Instructions
-1. Open `contact.html` to test the Contact Form.
-2. Open `registration.html` to test the Registration Form.
-3. Open the `individual_yernur` folder for Part 2 JavaScript tasks.
