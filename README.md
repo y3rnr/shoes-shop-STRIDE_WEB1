@@ -1,9 +1,9 @@
 # STRIDE Shoes Shop - Assignment 5
 
 ## Team Members
-- Yernur (Group: [Insert Your Group]) - Contact Form, Bootstrap integration, Individual Part 2.
-- Abylai (Group: [Insert Group]) - Registration Form, CSS Grid, Individual Part 2.
-- Ramazan (Group: [Insert Group]) - JavaScript Passwords Validation, Documentation, Individual Part 2.
+- Yernur - Contact Form, Bootstrap integration.
+- Abylai - Registration Form, CSS Grid.
+- Ramazan - JavaScript Passwords Validation, Documentation.
 
 ## Website Topic
 STRIDE - E-commerce store for urban and off-road shoes. 
