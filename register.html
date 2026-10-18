@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRIDE — Registration</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <img src="images/favicon.svg" alt="STRIDE Logo" width="40" height="40">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="about.html">About Team</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="register.html" aria-current="page" class="active">Register</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="contact-section">
+            <div class="contact-header text-center mb-4">
+                <h1>Create an Account</h1>
+                <p class="text-secondary">Join STRIDE to track orders and save your favorite sneakers.</p>
+            </div>
+
+            <form id="regForm" action="demo_result.html" method="get" class="contact-form needs-validation" novalidate>
+                <!-- Grid layout for First Name and Last Name -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label text-light fw-bold">First Name:</label>
+                        <input id="firstName" type="text" class="form-control" minlength="2" required placeholder="Palenshe">
+                        <div class="invalid-feedback">First name must be at least 2 characters.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label text-light fw-bold">Last Name:</label>
+                        <input id="lastName" type="text" class="form-control" minlength="2" required placeholder="Palenshiev">
+                        <div class="invalid-feedback">Last name must be at least 2 characters.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="regEmail" class="form-label text-light fw-bold">Email:</label>
+                    <input id="regEmail" type="email" class="form-control" required placeholder="palaenshe@example.com">
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="password" class="form-label text-light fw-bold">Password (min 8 chars):</label>
+                        <input id="password" type="password" class="form-control" minlength="8" required>
+                        <div class="invalid-feedback">Password must be at least 8 characters.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="confirmPassword" class="form-label text-light fw-bold">Confirm Password:</label>
+                        <input id="confirmPassword" type="password" class="form-control" minlength="8" required>
+                        <div id="passwordError" class="invalid-feedback">Passwords do not match!</div>
+                    </div>
+                </div>
+
+                <!-- Gender Radio Group using fieldset and legend -->
+                <fieldset class="border rounded p-3 mb-3 text-light">
+                    <legend class="float-none w-auto px-2 fs-6 fw-bold">Gender</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male">
+                        <label class="form-check-label" for="genderMale">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
+                        <label class="form-check-label" for="genderFemale">Female</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="genderPrefer" value="prefer-not" checked>
+                        <label class="form-check-label" for="genderPrefer">Prefer not to say</label>
+                    </div>
+                </fieldset>
+
+                <!-- Hobbies Checkboxes -->
+                <fieldset class="border rounded p-3 mb-3 text-light">
+                    <legend class="float-none w-auto px-2 fs-6 fw-bold">Hobbies / Interests</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyRunning" value="running">
+                        <label class="form-check-label" for="hobbyRunning">Running</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyHiking" value="hiking">
+                        <label class="form-check-label" for="hobbyHiking">Hiking</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyUrban" value="urban">
+                        <label class="form-check-label" for="hobbyUrban">Urban Fashion</label>
+                    </div>
+                </fieldset>
+
+                <!-- Country Select -->
+                <div class="mb-4">
+                    <label for="country" class="form-label text-light fw-bold">Country:</label>
+                    <select id="country" class="form-select bg-dark text-light border-secondary" required>
+                        <option value="" disabled selected>-- Select your country --</option>
+                        <option value="kz">Kazakhstan</option>
+                        <option value="uz">Uzbekistan</option>
+                        <option value="kg">Kyrgyzstan</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a country.</div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-warning flex-fill fw-bold">Register</button>
+                    <button type="reset" id="resetBtn" class="btn btn-outline-light flex-fill">Reset</button>
+                </div>
+            </form>
+            
+            <div id="successMessage" class="alert alert-success mt-4 text-center fw-bold" style="display: none;">
+                Registration successful! (Demo sample data accepted).
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
+    </footer>
+
+    <!-- Password Verification & Form Script -->
+    <script>
+        const form = document.getElementById('regForm');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const passwordError = document.getElementById('passwordError');
+        const successMessage = document.getElementById('successMessage');
+        const resetBtn = document.getElementById('resetBtn');
+
+        form.addEventListener('submit', function(event) {
+            let isPasswordMatch = password.value === confirmPassword.value;
+
+            if (!form.checkValidity() || !isPasswordMatch) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (!isPasswordMatch) {
+                    confirmPassword.setCustomValidity("Mismatch");
+                    passwordError.style.display = 'block';
+                } else {
+                    confirmPassword.setCustomValidity("");
+                    passwordError.style.display = 'none';
+                }
+            } else {
+                event.preventDefault();
+                confirmPassword.setCustomValidity("");
+                passwordError.style.display = 'none';
+                successMessage.style.display = 'block';
+                form.classList.remove('was-validated');
+                form.reset();
+                return;
+            }
+
+            form.classList.add('was-validated');
+        });
+
+        // Clear error on input change
+        confirmPassword.addEventListener('input', function() {
+            if (password.value === confirmPassword.value) {
+                confirmPassword.setCustomValidity("");
+                passwordError.style.display = 'none';
+            }
+        });
+
+        // Reset button clears validation state
+        resetBtn.addEventListener('click', function() {
+            form.classList.remove('was-validated');
+            confirmPassword.setCustomValidity("");
+            passwordError.style.display = 'none';
+            successMessage.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
