@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRIDE — Registration</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>STRIDE — Create Account</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <script src="js/home.js" defer></script>
 </head>
 <body>
-
     <header>
         <div class="logo-area">
             <img src="images/favicon.svg" alt="STRIDE Logo" width="40" height="40">
@@ -20,102 +20,99 @@
             <a href="catalogue.html">Catalogue</a>
             <a href="about.html">About Team</a>
             <a href="contact.html">Contact Us</a>
-            <a href="register.html" aria-current="page" class="active">Register</a>
+            <a href="registration.html" class="active">Create Account</a>
         </nav>
+        <button type="button" id="themeBtn" class="theme-button">Light mode</button>
     </header>
 
-    <main id="main-content">
-        <section class="contact-section">
-            <div class="contact-header text-center mb-4">
-                <h1>Create an Account</h1>
-                <p class="text-secondary">Join STRIDE to track orders and save your favorite sneakers.</p>
+    <main id="main-content" class="container my-5" style="padding-top: 100px;">
+        <section class="contact-section mx-auto" style="max-width: 800px;">
+            <div class="contact-header">
+                <h1>Create Account</h1>
+                <p>Join STRIDE for faster checkout and exclusive offers.</p>
             </div>
 
-            <form id="regForm" action="demo_result.html" method="get" class="contact-form needs-validation" novalidate>
-                <div class="row g-3 mb-3">
-                    <div class="col-md-6">
-                        <label for="firstName" class="form-label text-light fw-bold">First Name:</label>
-                        <input id="firstName" type="text" class="form-control" minlength="2" required placeholder="Palenshe">
-                        <div class="invalid-feedback">First name must be at least 2 characters.</div>
+            <p class="demo-note">Demo registration only. No account is created or stored. Use test details.</p>
+            <form id="registrationForm" class="contact-form needs-validation" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6 form-group position-relative">
+                        <label class="form-label" for="firstName">First Name <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="firstName" placeholder="Enter your first name" required minlength="2">
+                        <div class="invalid-feedback">Min 2 characters required.</div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="lastName" class="form-label text-light fw-bold">Last Name:</label>
-                        <input id="lastName" type="text" class="form-control" minlength="2" required placeholder="Palenshiev">
-                        <div class="invalid-feedback">Last name must be at least 2 characters.</div>
+                    <div class="col-md-6 form-group position-relative">
+                        <label class="form-label" for="lastName">Last Name <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="lastName" placeholder="Enter your last name" required minlength="2">
+                        <div class="invalid-feedback">Min 2 characters required.</div>
                     </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="regEmail" class="form-label text-light fw-bold">Email:</label>
-                    <input id="regEmail" type="email" class="form-control" required placeholder="palaenshe@example.com">
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
-                </div>
-
-                <div class="row g-3 mb-3">
-                    <div class="col-md-6">
-                        <label for="password" class="form-label text-light fw-bold">Password (min 8 chars):</label>
-                        <input id="password" type="password" class="form-control" minlength="8" required>
-                        <div class="invalid-feedback">Password must be at least 8 characters.</div>
+                    <div class="col-12 form-group position-relative">
+                        <label class="form-label" for="regEmail">Email Address <span class="text-danger">*</span></label>
+                        <input class="form-control" type="email" id="regEmail" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">Please provide a valid email.</div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="confirmPassword" class="form-label text-light fw-bold">Confirm Password:</label>
-                        <input id="confirmPassword" type="password" class="form-control" minlength="8" required>
-                        <div id="passwordError" class="invalid-feedback">Passwords do not match!</div>
+                    <div class="col-md-6 form-group position-relative">
+                        <label class="form-label" for="regPassword">Password <span class="text-danger">*</span></label>
+                        <input class="form-control" type="password" id="regPassword" placeholder="At least 8 characters" required minlength="8">
+                        <div class="invalid-feedback">Minimum 8 characters.</div>
                     </div>
-                </div>
-
-                <fieldset class="border rounded p-3 mb-3 text-light">
-                    <legend class="float-none w-auto px-2 fs-6 fw-bold">Gender</legend>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male">
-                        <label class="form-check-label" for="genderMale">Male</label>
+                    <div class="col-md-6 form-group position-relative">
+                        <label class="form-label" for="confirmPassword">Confirm Password <span class="text-danger">*</span></label>
+                        <input class="form-control" type="password" id="confirmPassword" placeholder="Repeat your password" required minlength="8">
+                        <div class="invalid-feedback" id="passwordError">Passwords must match.</div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
-                        <label class="form-check-label" for="genderFemale">Female</label>
+                    <div class="col-md-6 mt-4">
+                        <fieldset class="border border-secondary p-3 rounded register-options">
+                            <legend class="float-none w-auto px-2 fs-6">Gender (Optional)</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male">
+                                <label class="form-check-label" for="genderMale">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
+                                <label class="form-check-label" for="genderFemale">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="genderPreferNot" value="prefer_not" checked>
+                                <label class="form-check-label" for="genderPreferNot">Prefer not to say</label>
+                            </div>
+                        </fieldset>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="genderPrefer" value="prefer-not" checked>
-                        <label class="form-check-label" for="genderPrefer">Prefer not to say</label>
+                    <div class="col-md-6 mt-4">
+                        <fieldset class="border border-secondary p-3 rounded register-options">
+                            <legend class="float-none w-auto px-2 fs-6">Interests (Optional)</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="hobbyRunning" value="running">
+                                <label class="form-check-label" for="hobbyRunning">Running Shoes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="hobbyUrban" value="urban">
+                                <label class="form-check-label" for="hobbyUrban">Urban / Casual</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="hobbyWinter" value="winter">
+                                <label class="form-check-label" for="hobbyWinter">Winter Boots</label>
+                            </div>
+                        </fieldset>
                     </div>
-                </fieldset>
-
-                <fieldset class="border rounded p-3 mb-3 text-light">
-                    <legend class="float-none w-auto px-2 fs-6 fw-bold">Hobbies / Interests</legend>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyRunning" value="running">
-                        <label class="form-check-label" for="hobbyRunning">Running</label>
+                    <div class="col-12 form-group position-relative mt-4">
+                        <label class="form-label" for="countrySelect">Country <span class="text-danger">*</span></label>
+                        <select id="countrySelect" class="form-select" required>
+                            <option value="" selected disabled>Choose your country...</option>
+                            <option value="KZ">Kazakhstan</option>
+                            <option value="US">United States</option>
+                            <option value="UK">United Kingdom</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a country.</div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyHiking" value="hiking">
-                        <label class="form-check-label" for="hobbyHiking">Hiking</label>
+                    <div class="col-12 mt-4 d-flex gap-3">
+                        <button type="submit" class="btn-primary flex-grow-1 border-0 py-2">Register</button>
+                        <button type="reset" id="resetBtn" class="btn btn-outline-secondary py-2 px-4">Reset</button>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyUrban" value="urban">
-                        <label class="form-check-label" for="hobbyUrban">Urban Fashion</label>
-                    </div>
-                </fieldset>
-
-                <div class="mb-4">
-                    <label for="country" class="form-label text-light fw-bold">Country:</label>
-                    <select id="country" class="form-select bg-dark text-light border-secondary" required>
-                        <option value="" disabled selected>-- Select your country --</option>
-                        <option value="kz">Kazakhstan</option>
-                        <option value="uz">Uzbekistan</option>
-                        <option value="kg">Kyrgyzstan</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <div class="invalid-feedback">Please select a country.</div>
-                </div>
-
-                <div class="d-flex gap-2">
-                    <button type="submit" class="btn btn-warning flex-fill fw-bold">Register</button>
-                    <button type="reset" id="resetBtn" class="btn btn-outline-light flex-fill">Reset</button>
                 </div>
             </form>
-            
-            <div id="successMessage" class="alert alert-success mt-4 text-center fw-bold" style="display: none;">
-                Registration successful! (Demo sample data accepted).
+
+            <div id="successMessage" class="alert alert-success mt-4 d-none text-center" role="alert">
+                Demo check successful! No account was created.
             </div>
         </section>
     </main>
@@ -124,54 +121,6 @@
         <p>&copy; 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
     </footer>
 
-    <script>
-        const form = document.getElementById('regForm');
-        const password = document.getElementById('password');
-        const confirmPassword = document.getElementById('confirmPassword');
-        const passwordError = document.getElementById('passwordError');
-        const successMessage = document.getElementById('successMessage');
-        const resetBtn = document.getElementById('resetBtn');
-
-        form.addEventListener('submit', function(event) {
-            let isPasswordMatch = password.value === confirmPassword.value;
-
-            if (!form.checkValidity() || !isPasswordMatch) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                if (!isPasswordMatch) {
-                    confirmPassword.setCustomValidity("Mismatch");
-                    passwordError.style.display = 'block';
-                } else {
-                    confirmPassword.setCustomValidity("");
-                    passwordError.style.display = 'none';
-                }
-            } else {
-                event.preventDefault();
-                confirmPassword.setCustomValidity("");
-                passwordError.style.display = 'none';
-                successMessage.style.display = 'block';
-                form.classList.remove('was-validated');
-                form.reset();
-                return;
-            }
-
-            form.classList.add('was-validated');
-        });
-
-        confirmPassword.addEventListener('input', function() {
-            if (password.value === confirmPassword.value) {
-                confirmPassword.setCustomValidity("");
-                passwordError.style.display = 'none';
-            }
-        });
-
-        resetBtn.addEventListener('click', function() {
-            form.classList.remove('was-validated');
-            confirmPassword.setCustomValidity("");
-            passwordError.style.display = 'none';
-            successMessage.style.display = 'none';
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
 </body>
 </html>
