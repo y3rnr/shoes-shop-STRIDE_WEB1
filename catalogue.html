@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/catalogue.js" defer></script>
+    <script src="js/home.js" defer></script>
 </head>
 <body>
 
@@ -22,68 +24,104 @@
             <a href="contact.html">Contact Us</a>
             <a href="registration.html">Create Account</a>
         </nav>
+        <button type="button" id="themeBtn" class="theme-button">Light mode</button>
     </header>
 
     <main>
+        <section class="catalogue-intro">
         <h1 class="title">Catalogue</h1>
         <p class="subtitle">From lightweight running sneakers to rugged winter boots — find your pair.</p>
+        
+        </section>
 
-        <div class="filters">
-            <a href="catalogue.html" class="btn-filter active">All</a>
-            <a href="catalogue.html" class="btn-filter">Hit</a>
-            <button class="btn-filter">Running</button>
-        </div>
+        <section class="catalogue-tools">
+            <div class="search-box">
+                <label for="shoeSearch">Find your shoes</label>
+                <input type="search" id="shoeSearch" placeholder="Search by shoe name...">
+                <p id="searchCount">6 products found</p>
+                <p id="noResults" hidden>No results found</p>
+            </div>
+        </section>
+        <section class="catalogue-products">
+        <h2 class="catalogue-heading">Our Shoe Collection</h2>
 
-        <div class="grid-container">
+        <div class="grid-container" id="productGrid">
             <article class="card">
-                <div class="card-img"><img src="images/urbanShoes1.png" alt="Shoes"></div>
+                <div class="card-img"><img src="images/urbanShoes1.png" alt="Shoe model"></div>
                 <div class="card-title">Loewe x On Running Cloudtilt</div>
                 <div class="card-footer">
                     <span class="price">24,500 KZT</span>
-                    <button class="btn-buy">Add to Cart</button>
+                    <button class="btn-buy">Add to Favourites</button>
                 </div>
             </article>
             <article class="card">
-                <div class="card-img"><img src="images/athleticRunningShoes1.png" alt="Shoes"></div>
+                <div class="card-img"><img src="images/athleticRunningShoes1.png" alt="Shoe model"></div>
                 <div class="card-title">N. Initiator Light Grey Custom</div>
                 <div class="card-footer">
                     <span class="price">28,990 KZT</span>
-                    <button class="btn-buy">Add to Cart</button>
+                    <button class="btn-buy">Add to Favourites</button>
                 </div>
             </article>
             <article class="card">
-                <div class="card-img"><img src="images/autumnHit.png" alt="Shoes"></div>
+                <div class="card-img"><img src="images/autumnHit.png" alt="Shoe model"></div>
                 <div class="card-title">V5 RNR Black White</div>
                 <div class="card-footer">
                     <span class="price">24,500 KZT</span>
-                    <button class="btn-buy">Add to Cart</button>
+                    <button class="btn-buy">Add to Favourites</button>
                 </div>
             </article>
             <article class="card">
-                <div class="card-img"><img src="images/owens.jpg" alt="Shoes"></div>
+                <div class="card-img"><img src="images/owens.jpg" alt="Shoe model"></div>
                 <div class="card-title"> Rick Owens Porterville Jumbo Laced Low</div>
                 <div class="card-footer">
                     <span class="price">55,500 KZT</span>
-                    <button class="btn-buy">Add to Cart</button>
+                    <button class="btn-buy">Add to Favourites</button>
                 </div>
             </article>
             <article class="card">
-                <div class="card-img"><img src="images/saint.webp" alt="Shoes"></div>
+                <div class="card-img"><img src="images/saint.webp" alt="Shoe model"></div>
                 <div class="card-title">Saint Laurent Court Classic</div>
                 <div class="card-footer">
                     <span class="price">60,500 KZT</span>
-                    <button class="btn-buy">Add to Cart</button>
+                    <button class="btn-buy">Add to Favourites</button>
                 </div>
             </article>
             <article class="card">
-                <div class="card-img"><img src="images/peg.webp" alt="Shoes"></div>
+                <div class="card-img"><img src="images/peg.webp" alt="Shoe model"></div>
                 <div class="card-title">Nike Pegasus</div>
                 <div class="card-footer">
                     <span class="price">25,500 KZT</span>
-                    <button class="btn-buy">Add to Cart</button>
+                    <button class="btn-buy">Add to Favourites</button>
                 </div>
             </article>
         </div>
+        
+        </section>
+
+        <section class="favourites-section" id="favourites">
+            <div class="favourites-heading">
+                <span>YOUR PERSONAL LIST</span>
+                <h2>My Favourite Shoes</h2>
+                <p>Add shoes you like and manage your list.</p>
+            </div>
+
+            <form id="favouriteForm">
+                <label for="favouriteInput">Shoe name</label>
+
+                <div class="favourite-controls">
+                    <input type="text" id="favouriteInput" placeholder="Enter a shoe name">
+                    <button type="submit">Add</button>
+                </div>
+
+                <p id="favouriteError" aria-live="polite"></p>
+            </form>
+
+            <div class="favourites-list-box">
+                <h3>Saved Shoes <span id="favouriteCount">0</span></h3>
+                <ul id="favouriteList"></ul>
+            </div>
+        </section>
+
     </main>
 
     <footer>
