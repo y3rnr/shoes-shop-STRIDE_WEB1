@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/home.js" defer></script>
 </head>
 <body>
 
@@ -22,9 +23,26 @@
             <a href="contact.html">Contact Us</a>
             <a href="registration.html">Create Account</a>
         </nav>
+        <button type="button" id="themeBtn" class="theme-button">Light mode</button>
     </header>
 
     <main>
+        
+        <section class="stride-welcome">
+            <div>
+                <span class="welcome-label">YOUR STRIDE STARTS HERE</span>
+                <h2>Welcome to STRIDE</h2>
+                <p>Tell us your name and enjoy your visit.</p>
+            </div>
+
+            <div class="welcome-controls">
+                <label for="customerName">Your name</label>
+                <input type="text" id="customerName" placeholder="Enter your name">
+                <button type="button" id="welcomeBtn">Say Hello</button>
+                <p id="welcomeMessage" aria-live="polite"></p>
+            </div>
+        </section>
+
         <section class="hero-section">
             <div class="hero-content">
                 <h1>Shoes for the City and Off-Road</h1>
@@ -58,9 +76,9 @@
         </section>
 
         <section class="hits-section">
-            <div class="section-header-flex" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+            <div class="section-header-flex">
                 <h2>Best Sellers</h2>
-                <a href="catalogue.html" style="color: #b3a8c1; text-decoration: none;">all catalogue</a>
+                <a href="catalogue.html" class="catalogue-link">all catalogue</a>
             </div>
             <div class="grid-container">
                 <article class="card">
@@ -68,7 +86,7 @@
                     <h3>Urban Sneakers</h3>
                     <div class="card-footer">
                         <span class="price">24,500 KZT</span>
-                        <button type="button" class="btn-buy">Add to Cart</button>
+                        <button type="button" class="btn-buy">Add to Favourites</button>
                     </div>
                 </article>
                 <article class="card">
@@ -76,7 +94,7 @@
                     <h3>Athletic Running</h3>
                     <div class="card-footer">
                         <span class="price">28,900 KZT</span>
-                        <button type="button" class="btn-buy">Add to Cart</button>
+                        <button type="button" class="btn-buy">Add to Favourites</button>
                     </div>
                 </article>
                 <article class="card">
@@ -84,11 +102,12 @@
                     <h3>Waterproof Boots</h3>
                     <div class="card-footer">
                         <span class="price">34,500 KZT</span>
-                        <button type="button" class="btn-buy">Add to Cart</button>
+                        <button type="button" class="btn-buy">Add to Favourites</button>
                     </div>
                 </article>
             </div>
         </section>
+        
     </main>
 
     <footer>
