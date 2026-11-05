@@ -1,133 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRIDE — Catalogue</title>
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <script src="js/catalogue.js" defer></script>
-    <script src="js/home.js" defer></script>
-</head>
-<body>
-
-    <header>
-        <div class="logo-area">
-            <img src="images/favicon.svg" alt="STRIDE Logo" width="40" height="40">
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="catalogue.html" class="active">Catalogue</a>
-            <a href="about.html">About Team</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="registration.html">Create Account</a>
-        </nav>
-        <button type="button" id="themeBtn" class="theme-button">Light mode</button>
-    </header>
-
-    <main>
-        <section class="catalogue-intro">
-        <h1 class="title">Catalogue</h1>
-        <p class="subtitle">From lightweight running sneakers to rugged winter boots — find your pair.</p>
-        
-        </section>
-
-        <section class="catalogue-tools">
-            <div class="search-box">
-                <label for="shoeSearch">Find your shoes</label>
-                <input type="search" id="shoeSearch" placeholder="Search by shoe name...">
-                <p id="searchCount">6 products found</p>
-                <p id="noResults" hidden>No results found</p>
-            </div>
-        </section>
-        <section class="catalogue-products">
-        <h2 class="catalogue-heading">Our Shoe Collection</h2>
-
-        <div class="grid-container" id="productGrid">
-            <article class="card">
-                <div class="card-img"><img src="images/urbanShoes1.png" alt="Shoe model"></div>
-                <div class="card-title">Loewe x On Running Cloudtilt</div>
-                <div class="card-footer">
-                    <span class="price">24,500 KZT</span>
-                    <button class="btn-buy">Add to Favourites</button>
-                </div>
-            </article>
-            <article class="card">
-                <div class="card-img"><img src="images/athleticRunningShoes1.png" alt="Shoe model"></div>
-                <div class="card-title">N. Initiator Light Grey Custom</div>
-                <div class="card-footer">
-                    <span class="price">28,990 KZT</span>
-                    <button class="btn-buy">Add to Favourites</button>
-                </div>
-            </article>
-            <article class="card">
-                <div class="card-img"><img src="images/autumnHit.png" alt="Shoe model"></div>
-                <div class="card-title">V5 RNR Black White</div>
-                <div class="card-footer">
-                    <span class="price">24,500 KZT</span>
-                    <button class="btn-buy">Add to Favourites</button>
-                </div>
-            </article>
-            <article class="card">
-                <div class="card-img"><img src="images/owens.jpg" alt="Shoe model"></div>
-                <div class="card-title"> Rick Owens Porterville Jumbo Laced Low</div>
-                <div class="card-footer">
-                    <span class="price">55,500 KZT</span>
-                    <button class="btn-buy">Add to Favourites</button>
-                </div>
-            </article>
-            <article class="card">
-                <div class="card-img"><img src="images/saint.webp" alt="Shoe model"></div>
-                <div class="card-title">Saint Laurent Court Classic</div>
-                <div class="card-footer">
-                    <span class="price">60,500 KZT</span>
-                    <button class="btn-buy">Add to Favourites</button>
-                </div>
-            </article>
-            <article class="card">
-                <div class="card-img"><img src="images/peg.webp" alt="Shoe model"></div>
-                <div class="card-title">Nike Pegasus</div>
-                <div class="card-footer">
-                    <span class="price">25,500 KZT</span>
-                    <button class="btn-buy">Add to Favourites</button>
-                </div>
-            </article>
-        </div>
-        
-        </section>
-
-        <section class="favourites-section" id="favourites">
-            <div class="favourites-heading">
-                <span>YOUR PERSONAL LIST</span>
-                <h2>My Favourite Shoes</h2>
-                <p>Add shoes you like and manage your list.</p>
-            </div>
-
-            <form id="favouriteForm">
-                <label for="favouriteInput">Shoe name</label>
-
-                <div class="favourite-controls">
-                    <input type="text" id="favouriteInput" placeholder="Enter a shoe name">
-                    <button type="submit">Add</button>
-                </div>
-
-                <p id="favouriteError" aria-live="polite"></p>
-            </form>
-
-            <div class="favourites-list-box">
-                <h3>Saved Shoes <span id="favouriteCount">0</span></h3>
-                <ul id="favouriteList"></ul>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
-
-</body>
+<html data-theme="light" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <script src="js/theme-init.js"></script>
+  <link href="images/favicon.png" rel="icon" type="image/png"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="STRIDE - wide-toe sport shoes, outdoor boots and everyday footwear." name="description"/>
+  <title>Catalogue | STRIDE</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/responsive.css" rel="stylesheet"/>
+  <script defer="" src="js/vendor/jquery.min.js"></script>
+  <script defer="" src="js/data.js"></script>
+  <script defer="" src="js/selection.js"></script>
+  <script defer="" src="js/site.js"></script>
+  <script defer="" src="js/catalogue.js"></script>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+   <div class="container nav-shell">
+    <a aria-label="STRIDE - Home" class="brand" href="index.html">STRIDE</a>
+    <nav aria-label="Main navigation" class="nav-links">
+     <a href="index.html">Home</a>
+     <a aria-current="page" href="catalogue.html">Catalogue</a>
+     <a href="about.html">About</a>
+     <a href="contact.html">Contact</a>
+     <a href="registration.html">Registration</a>
+    </nav>
+    <span aria-hidden="true" class="mobile-page-title">Catalogue</span>
+    <div class="nav-actions">
+     <button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" type="button">
+      <span aria-hidden="true" class="theme-icon"><span class="theme-moon">☾</span><span class="theme-sun">☀</span></span>
+      <span class="theme-label"><span class="theme-dark-text">Dark mode</span><span class="theme-light-text">Light mode</span></span>
+     </button>
+     <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="nav-toggle" id="nav-toggle" type="button">
+      <span aria-hidden="true">☰</span>
+     </button>
+    </div>
+   </div>
+   <nav aria-label="Mobile navigation" class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a aria-current="page" href="catalogue.html">Catalogue</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="registration.html">Registration</a>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="container page-intro">
+    <div class="eyebrow">OUR COLLECTION</div>
+    <h1>Find your fit.</h1>
+    <p class="muted">From morning runs to rainy-day walks, find the pair that moves with you.</p>
+   </section>
+   <section class="container catalogue-section">
+    <div class="catalogue-tools">
+     <input aria-label="Search models" autocomplete="off" class="search-input" id="product-search" placeholder="Search by model name..." type="search"/>
+     <div aria-label="Filter by category" class="chips" role="group">
+       <button aria-pressed="true" class="chip js-category is-active" data-category="All" type="button">All</button>
+       <button aria-pressed="false" class="chip js-category" data-category="Sport" type="button">Sport</button>
+       <button aria-pressed="false" class="chip js-category" data-category="Boots" type="button">Boots</button>
+       <button aria-pressed="false" class="chip js-category" data-category="Everyday" type="button">Everyday</button>
+     </div>
+    </div>
+    <div class="catalogue-status">
+     <span aria-live="polite" id="results-count">Loading models...</span>
+     <button class="remove-link" id="clear-filters" type="button">Clear filters</button>
+    </div>
+    <div class="product-grid" id="catalogue-grid"></div>
+    <div class="empty-state" hidden="" id="catalogue-empty">
+     <h3>No results found.</h3>
+     <p class="muted">Change the category or search text.</p>
+     <button class="btn btn-outline" id="empty-reset" type="button">Reset filters</button>
+    </div>
+   </section>
+   <section class="section container selection-section" id="selection">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">YOUR PICKS</div>
+      <h2>
+       Your Selection
+       <span class="selection-count" id="selection-label-count">0</span>
+      </h2>
+     </div>
+     <p class="muted">Your chosen shoes appear here. Use + or − to change the quantity. You cannot place an order yet.</p>
+    </div>
+    <div class="selection-list" id="selection-list"></div>
+    <div class="empty-state" id="selection-empty">
+     <h3>Nothing selected yet.</h3>
+    </div>
+    <div class="summary-line" hidden="" id="selection-summary">
+     <span>
+      <span id="distinct-count">0</span>
+      distinct models ·
+      <span id="total-count">0</span>
+      pairs
+     </span>
+     <span>
+      Estimated total:
+      <strong id="total-price">0 ₸</strong>
+     </span>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-grid">
+     <div>
+      <a class="footer-brand" href="index.html">STRIDE</a>
+      <p>Discover wide-toe footwear for everyday life, outdoor journeys and sport.</p>
+     </div>
+     <div>
+      <div class="eyebrow">Discover</div>
+      <ul>
+       <li>
+        <a href="catalogue.html">Catalogue</a>
+       </li>
+       <li>
+        <a href="about.html">About STRIDE</a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <div class="eyebrow">Support</div>
+      <ul>
+       <li>
+        <a href="contact.html">Contact</a>
+       </li>
+       <li>
+        <a href="contact.html#faq">FAQ</a>
+       </li>
+       <li>
+        <a href="registration.html">Registration</a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
+    </div>
+   </div>
+  </footer>
+  <div aria-live="polite" class="toast" id="toast" role="status"></div>
+  <dialog aria-label="Product details" class="detail-dialog" id="product-dialog">
+   <button aria-label="Close details" class="close-btn" type="button">X</button>
+   <div class="detail-layout">
+    <div class="detail-photo">
+     <img alt="Left-facing sneaker" id="detail-image" src="images/catalogue/studio-grey.webp"/>
+    </div>
+    <div class="detail-copy">
+     <div class="eyebrow">Product details</div>
+     <h2 id="detail-name">Model</h2>
+     <p class="muted" id="detail-description"></p>
+     <ul class="details-list">
+      <li>
+       Category:
+       <strong id="detail-category"></strong>
+      </li>
+      <li>
+       Colour:
+       <strong id="detail-color"></strong>
+      </li>
+     </ul>
+     <p>
+      <strong id="detail-price"></strong>
+     </p>
+     <button class="btn js-add-selection" id="detail-add" type="button">Buy</button>
+     <p class="note">These shoes are shown for browsing. Online purchases are not available.</p>
+    </div>
+   </div>
+  </dialog>
+ </body>
 </html>
