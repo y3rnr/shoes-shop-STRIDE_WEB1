@@ -1,118 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRIDE — Contact Us</title>
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <script src="js/faq.js" defer></script>
-    <script src="js/home.js" defer></script>
-</head>
-<body>
-
-    <header>
-        <div class="logo-area">
-            <img src="images/favicon.svg" alt="STRIDE Logo" width="40" height="40">
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="catalogue.html" >Catalogue</a>
-            <a href="about.html">About Team</a>
-            <a href="contact.html" class="active">Contact Us</a>
-            <a href="registration.html">Create Account</a>
-        </nav>
-        <button type="button" id="themeBtn" class="theme-button">Light mode</button>
-    </header>
-
-    <main id="main-content">
-        <section class="contact-section">
-            <div class="contact-header">
-                <h1>Contact Us</h1>
-                <p>Have questions about sizes or delivery? Use this static demonstration form.</p>
-            </div>
-
-            <p id="demo-note" class="demo-note">
-                Demo only. Your information is not sent or stored. Use sample details.
-            </p>
-
-            <form class="contact-form needs-validation" action="demo_result.html" method="get" aria-describedby="demo-note" novalidate>
-                <div class="form-group position-relative">
-                    <label class="form-label" for="contactName">Your Name:</label>
-                    <input class="form-control" type="text" id="contactName" name="contactName" placeholder="Palaenshe Palanshiev" required minlength="2">
-                    <div class="invalid-tooltip">Minimum 2 characters required.</div>
-                    <div class="valid-tooltip">Looks good!</div>
-                </div>
-
-                <div class="form-group position-relative">
-                    <label class="form-label" for="contactEmail">Your Email:</label>
-                    <input class="form-control" type="email" id="contactEmail" name="contactEmail" placeholder="palaenshe@example.com" required>
-                    <div class="invalid-tooltip">Please enter a valid email.</div>
-                    <div class="valid-tooltip">Valid email!</div>
-                </div>
-
-                <div class="form-group position-relative">
-                    <label class="form-label" for="contactMessage">Your Message:</label>
-                    <textarea class="form-control" id="contactMessage" name="contactMessage" rows="5" placeholder="Write your message here..." required minlength="10" maxlength="500"></textarea>
-                    <div class="invalid-tooltip">Message must be 10-500 characters.</div>
-                    <div class="valid-tooltip">Looks good!</div>
-                </div>
-
-                <button type="submit" class="btn-primary w-100 mt-3 border-0 py-2">Check Demo Form</button>
-            </form>
-        </section>
-
-        <section class="contact-info">
-            <h2>How We Can Help</h2>
-            <p>Ask us about shoe sizes, delivery or returns. The form above is a demo and does not send messages.</p>
-        </section>
-
-        <section class="faq-section mt-5">
-            <div class="faq-heading">
-                <span>NEED HELP?</span>
-                <h2>Frequently Asked Questions</h2>
-                <p>Find quick answers about our shoes and services.</p>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false">
-                    How long does delivery take?
-                    <span>+</span>
-                </button>
-                <p class="faq-answer" hidden>
-                    We deliver nationwide within 1-2 business days.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false">
-                    What is your return policy?
-                    <span>+</span>
-                </button>
-                <p class="faq-answer" hidden>
-                    You can return unworn shoes within 14 days.
-                </p>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false">
-                    How can I choose my shoe size?
-                    <span>+</span>
-                </button>
-                <p class="faq-answer" hidden>
-                    Check the size guide before choosing your shoes.
-                </p>
-            </div>
-        </section>
-
-    </main>
-    
-    <footer>
-        <p>&copy; 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
-</body>
+<html data-theme="light" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <script src="js/theme-init.js"></script>
+  <link href="images/favicon.png" rel="icon" type="image/png"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="STRIDE — wide-toe sport shoes, outdoor boots and everyday footwear." name="description"/>
+  <title>Contact | STRIDE</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/responsive.css" rel="stylesheet"/>
+  <script defer="" src="js/vendor/jquery.min.js"></script>
+  <script defer="" src="js/site.js"></script>
+  <script defer="" src="js/form-validation.js"></script>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+   <div class="container nav-shell">
+    <a aria-label="STRIDE — Home" class="brand" href="index.html">STRIDE</a>
+    <nav aria-label="Main navigation" class="nav-links">
+     <a href="index.html">Home</a>
+     <a href="catalogue.html">Catalogue</a>
+     <a href="about.html">About</a>
+     <a aria-current="page" href="contact.html">Contact</a>
+     <a href="registration.html">Registration</a>
+    </nav>
+    <span aria-hidden="true" class="mobile-page-title">Contact</span>
+    <div class="nav-actions">
+     <button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" type="button">
+      <span aria-hidden="true" class="theme-icon"><span class="theme-moon">☾</span><span class="theme-sun">☀</span></span>
+      <span class="theme-label"><span class="theme-dark-text">Dark mode</span><span class="theme-light-text">Light mode</span></span>
+     </button>
+     <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="nav-toggle" id="nav-toggle" type="button">
+      <span aria-hidden="true">☰</span>
+     </button>
+    </div>
+   </div>
+   <nav aria-label="Mobile navigation" class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="about.html">About</a>
+    <a aria-current="page" href="contact.html">Contact</a>
+    <a href="registration.html">Registration</a>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="container section contact-primary">
+    <div class="two-col contact-two">
+     <div class="contact-copy">
+      <div class="eyebrow">WE ARE HERE TO HELP</div>
+      <h1>Contact Us</h1>
+      <p class="muted">Questions about sizing or delivery? Send us a message.</p>
+     </div>
+     <form class="simple-panel" id="contact-form" novalidate="">
+      <div class="stack">
+       <div class="field">
+        <label class="form-label" for="contact-name">Your Name:</label>
+        <input autocomplete="name" class="form-control" id="contact-name" minlength="2" name="name" placeholder="Palaenshe Palanshiev" required="" type="text"/>
+        <p class="field-hint">Minimum 2 characters required.</p>
+        <span aria-live="polite" class="invalid-feedback field-error" id="contact-name-error"></span>
+       </div>
+       <div class="field">
+        <label class="form-label" for="contact-email">Your Email:</label>
+        <input autocomplete="email" class="form-control" id="contact-email" name="email" placeholder="palaenshe@example.com" required="" type="email"/>
+        <p class="field-hint">Please enter a valid email.</p>
+        <span aria-live="polite" class="invalid-feedback field-error" id="contact-email-error"></span>
+       </div>
+       <div class="field">
+        <label class="form-label" for="contact-message">Your Message:</label>
+        <textarea class="form-control" id="contact-message" maxlength="500" minlength="10" name="message" placeholder="Ask us about shoe sizes or delivery..." required=""></textarea>
+        <p class="field-hint">Message must be 10-500 characters.</p>
+        <span aria-live="polite" class="invalid-feedback field-error" id="contact-message-error"></span>
+       </div>
+       <button class="btn btn-full" type="submit">Send Message</button>
+       <p class="note">* Required. No data is sent or saved.</p>
+       <div class="success-message" hidden="" id="contact-result" role="status"></div>
+      </div>
+     </form>
+    </div>
+   </section>
+   <section class="container section" id="faq">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">Help / Answers</div>
+      <h2>Frequently Asked Questions</h2>
+     </div>
+    </div>
+    <div class="faq-item">
+     <button aria-expanded="false" class="faq-question" type="button">
+      How long does delivery take?
+      <span aria-hidden="true" class="faq-symbol">+</span>
+     </button>
+     <div class="faq-answer">We deliver nationwide within 1-2 business days.</div>
+    </div>
+    <div class="faq-item">
+     <button aria-expanded="false" class="faq-question" type="button">
+      What is your return policy?
+      <span aria-hidden="true" class="faq-symbol">+</span>
+     </button>
+     <div class="faq-answer">You can return unworn shoes within 14 days.</div>
+    </div>
+    <div class="faq-item">
+     <button aria-expanded="false" class="faq-question" type="button">
+      Does this form send a real message?
+      <span aria-hidden="true" class="faq-symbol">+</span>
+     </button>
+     <div class="faq-answer">No. This is a demo form. Your information is not sent or stored.</div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-grid">
+     <div>
+      <a class="footer-brand" href="index.html">STRIDE</a>
+      <p>Discover wide-toe footwear for everyday life, outdoor journeys and sport.</p>
+     </div>
+     <div>
+      <div class="eyebrow">Discover</div>
+      <ul>
+       <li>
+        <a href="catalogue.html">Catalogue</a>
+       </li>
+       <li>
+        <a href="about.html">About STRIDE</a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <div class="eyebrow">Support</div>
+      <ul>
+       <li>
+        <a href="contact.html">Contact</a>
+       </li>
+       <li>
+        <a href="contact.html#faq">FAQ</a>
+       </li>
+       <li>
+        <a href="registration.html">Registration</a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
+    </div>
+   </div>
+  </footer>
+  <div aria-live="polite" class="toast" id="toast" role="status"></div>
+ </body>
 </html>
