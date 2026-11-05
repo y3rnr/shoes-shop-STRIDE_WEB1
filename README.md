@@ -1,47 +1,50 @@
-# STRIDE Shoes Shop
+STRIDE is a student frontend shoe catalogue built with HTML, CSS, JavaScript and jQuery. It is a demonstration website, not a real shop.
 
-A multi-page shoe-store demonstration. Made with HTML, CSS, Bootstrap 5.3 (forms), and simple JavaScript.
+## Team
 
-## Pages
-- Home (`index.html`): hero, products, welcome input, shared colour theme.
-- Catalogue (`catalogue.html`): six shoe cards, live search, favourites, buttons to add an existing product to favourites.
-- About (`about.html`): company story, timeline, features.
-- Contact (`contact.html`): accessible demo contact form, information and interactive FAQ.
-- Registration (`registration.html`): demo registration with password confirmation, validation and reset.
-- Demo result (`demo_result.html`): honest static-form result message.
-
-## Files
-- `css/style.css`: shared styling, dark/light theme, component styles.
-- `css/responsive.css`: responsive Flexbox and Grid layouts.
-- `js/home.js`: name welcome, theme and demo registration validation.
-- `js/faq.js`: FAQ and contact form validation.
-- `js/catalogue.js`: search and favourites.
-- `images/`: all eight original image files.
+- Yernur — Part 1: Home, navigation, theme and welcome
+- Abylay — Part 2: Catalogue, galleries and selected products
+- Ramazan — Part 3: Contact, FAQ and Registration forms
 
 ## Run
-Open `index.html` with VS Code Live Server. Follow the navigation to other pages.
 
-## Test
-- Welcome: type a name with spaces; empty input shows a helpful message.
-- Theme: switch theme, open another page, confirm it stays.
-- FAQ: each of three questions opens and closes on click or Enter/Space.
-- Search: case-insensitive; empty query shows six items; nonexistent query shows no results.
-- Favourites: add by typing or product button, press Enter, remove one item, check count.
-- Contact: incomplete or invalid form is blocked; valid sample data opens `demo_result.html`, which says nothing was sent.
-- Registration: incorrect password confirmation blocks demo success; valid data displays demo success; Reset clears errors.
-- Responsive: test 320, 375, 768, 1024 and 1440 CSS pixels, with visible keyboard focus.
+Open `index.html` using VS Code Live Server. Use the navigation links to visit the five pages.
 
-## Previous assignments
-Assignment 2/3 requested semantic HTML, distinct pages, 20+ types of tags, two Flexbox and two Grid layouts, a six-item grid, responsive UI and an honest demo form. Their original submissions prohibited Bootstrap/JS. A later **Forms & Validation** assignment explicitly required Bootstrap and JavaScript. The current **DOM & Events** assignment requires JavaScript. This is an *evolved* final version; it is not a substitute for the historical HTML/CSS-only snapshots.
+## Project files
 
-## Work allocation (confirm against your real Git commits)
-- Yernur: welcome, theme, shared header.
-- Ramazan: FAQ, contact form.
-- Abylai: search, favourites, product cards.
-- Registration belongs to the earlier forms assignment; do not claim a new owner's work without checking Git history.
+| File | Simple purpose |
+| --- | --- |
+| `index.html` | Home, hero, Best Sellers and welcome |
+| `catalogue.html` | Search, category filters and Your Selection |
+| `about.html` | Philosophy, footwear comparison and team |
+| `contact.html` | Contact form and FAQ |
+| `registration.html` | Demo registration form |
+| `css/style.css` | Colours, layout, cards, dark/light theme |
+| `css/responsive.css` | Phone and tablet adjustments |
+| `js/theme-init.js` | Apply the saved theme before CSS loads |
+| `js/site.js` | Mobile menu, theme button, Home welcome, FAQ |
+| `js/data.js` | Eight shoe models, three colours per model |
+| `js/catalogue.js` | Product cards, galleries, Details, search and filters |
+| `js/selection.js` | Buy, selected list, quantity and total |
+| `js/form-validation.js` | Contact and Registration checks with simple `if` statements |
+| `js/vendor/jquery.min.js` | The unchanged official jQuery 3.6.1 library |
 
-## Limitations
-Forms are demonstrations, not connected to a backend. Favourites are temporary and are cleared when the page reloads. No payments or real user accounts are implemented.
+`home.js` is not missing: its welcome form is now in **`site.js`**. Product cards on Home are created by **`catalogue.js`**, so Home and Catalogue share the same design. The old `navbar.js`, `faq.js`, `jquery-main.js` and `favourites.js` were replaced by `site.js` and `selection.js`.
 
-Repository: https://github.com/y3rnr/shoes-shop-STRIDE_WEB1
-Deployed URL: add your tested GitHub Pages URL here.
+## Main features
+
+- Light and dark theme; selected mode remembered in the browser.
+- Eight models and twenty-four colour images; three clickable dots per product.
+- Case-insensitive search and category buttons working together.
+- Details and Buy buttons, one entry per model, `+ / −`, removal and total.
+- Contact FAQ with animated answers.
+- Contact and Registration forms with validation and demo confirmation.
+
+To add another model, copy one object in `js/data.js` and give it a new ID and three image paths. Prices and shoe descriptions are examples. Contact and Registration do not send information to a server.
+
+## Latest layout changes
+
+- Catalogue search and category controls have no extra visible captions. Accessibility labels remain in the HTML.
+- Removed the redundant bottom promotion sections from Contact and Registration.
+- Selection note is shown once.
+- Hero decorative circle uses CSS `aspect-ratio: 1 / 1` on all screen sizes.
