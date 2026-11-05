@@ -1,5 +1,3 @@
-// Contact and Registration form validation with jQuery.
-// The website is a demo. No information is sent to a server.
 $(document).ready(function () {
     function clearErrors() {
         $('.field-error').text('');
