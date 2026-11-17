@@ -1,3 +1,4 @@
+// Eight models. Each one has three colours. To add a model, copy one block.
 const STRIDE_PRODUCTS = [
   {
     id: "MD-001", name: "Studio", category: "Everyday", type: "Casual",
