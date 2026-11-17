@@ -1,8 +1,23 @@
-// Menu, light/dark theme, welcome message and FAQ.
+// Menu, theme, welcome message and FAQ.
 $(document).ready(function () {
     const menuButton = $('#nav-toggle');
     const mobileMenu = $('#mobile-menu');
     const themeButton = $('#theme-toggle');
+    let signedIn = false;
+    try {
+        const session = JSON.parse(localStorage.getItem('stride-demo-session'));
+        const users = JSON.parse(localStorage.getItem('stride-demo-users')) || {};
+        signedIn = Boolean(session && users[session.email]);
+    } catch (error) {
+        signedIn = false;
+    }
+    $('[data-auth-nav]').attr('href', signedIn ? 'profile.html' : 'login.html')
+        .text(signedIn ? 'Profile' : 'Log In');
+    const currentPage = window.location.pathname.split('/').pop();
+    if (['login.html', 'registration.html', 'profile.html'].includes(currentPage)) {
+        $('[data-auth-nav]').attr('aria-current', 'page');
+    }
+
 
     function closeMenu() {
         mobileMenu.removeClass('is-open');
@@ -41,14 +56,12 @@ $(document).ready(function () {
         localStorage.setItem('stride-theme', theme);
     });
 
-    // Home: read user input with .val(), display safe text with .text().
     $('#welcome-form').on('submit', function (event) {
         event.preventDefault();
         const name = $('#welcome-name').val().trim();
         $('#welcome-message').text(name ? 'Welcome to STRIDE, ' + name + '!' : 'Please enter your name.');
     });
 
-    // Contact: animated FAQ items.
     $('.faq-question').on('click', function () {
         const question = $(this);
         const open = question.attr('aria-expanded') === 'true';
