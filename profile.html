@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <script src="js/theme-init.js"></script>
+        <link href="images/favicon.png" rel="icon" type="image/png"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="STRIDE - wide-toe sport shoes, outdoor boots and everyday footwear." name="description"/>
+        <title>Profile | STRIDE</title>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
+        <link href="css/responsive.css" rel="stylesheet"/>
+        <script defer="" src="js/vendor/jquery.min.js"></script>
+        <script defer="" src="js/site.js"></script>
+        <script defer="" src="js/profile.js"></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <div class="container nav-shell">
+                <a aria-label="STRIDE - Home" class="brand" href="index.html">STRIDE</a>
+                <nav aria-label="Main navigation" class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="catalogue.html">Catalogue</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a class="account-link" data-auth-nav="1" href="login.html">Log In</a>
+                </nav>
+                <span aria-hidden="true" class="mobile-page-title">Profile</span>
+                <div class="nav-actions">
+                    <button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" type="button">
+                        <span aria-hidden="true" class="theme-icon"><span class="theme-moon">☾</span><span class="theme-sun">☀</span></span>
+                        <span class="theme-label"><span class="theme-dark-text">Dark mode</span><span class="theme-light-text">Light mode</span></span>
+                    </button>
+                    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="nav-toggle" id="nav-toggle" type="button">
+                        <span aria-hidden="true">☰</span>
+                    </button>
+                </div>
+            </div>
+            <nav aria-label="Mobile navigation" class="mobile-menu" id="mobile-menu">
+                <a href="index.html">Home</a>
+                <a href="catalogue.html">Catalogue</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a class="account-link" data-auth-nav="1" href="login.html">Log In</a>
+            </nav>
+        </header>
+        <main id="main">
+            <section class="container section auth-section">
+                <div class="two-col auth-layout">
+                    <div class="auth-copy">
+                        <div class="eyebrow">YOUR SPACE / STRIDE</div>
+                        <h1>My Profile</h1>
+                        <p class="muted">Your demo account information and a quick way back to the catalogue.</p>
+                        <p class="demo-note">This is a frontend-only profile. No data is stored on a server and no real purchases are possible.</p>
+                        <a class="btn" href="catalogue.html">Explore the Collection</a>
+                    </div>
+                    <section aria-label="Demo profile details" class="simple-panel profile-card">
+                        <div class="profile-top">
+                            <div aria-hidden="true" class="profile-avatar">S</div>
+                            <div>
+                                <div class="eyebrow">SIGNED IN</div>
+                                <h2 id="profile-name">My Account</h2></div></div>
+                        <dl class="profile-details">
+                            <div>
+                                <dt>EMAIL</dt>
+                                <dd id="profile-email">—</dd></div>
+                            <div>
+                                <dt>PHONE (OPTIONAL)</dt>
+                                <dd id="profile-phone">Not provided</dd></div>
+                            <div>
+                                <dt>COUNTRY</dt>
+                                <dd id="profile-country">—</dd></div>
+                            <div>
+                                <dt>SELECTION</dt>
+                                <dd id="profile-selection">0 shoe models saved</dd></div>
+                        </dl>
+                        <div class="profile-actions">
+                            <button class="btn" id="logout-button" type="button">Log Out</button>
+                            <button class="btn btn-outline" id="delete-account" type="button">Delete Demo Account</button>
+                        </div>
+                        <p class="note">Deleting removes the current demo account and its session from this browser.</p>
+                    </section>
+                </div>
+            </section></main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <a class="footer-brand" href="index.html">STRIDE</a>
+                        <p>Discover wide-toe footwear for everyday life, outdoor journeys and sport.</p>
+                    </div>
+                    <div>
+                        <div class="eyebrow">Discover</div>
+                        <ul>
+                            <li>
+                                <a href="catalogue.html">Catalogue</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About STRIDE</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="eyebrow">Support</div>
+                        <ul>
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="contact.html#faq">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="registration.html">Sign Up</a>
+                            </li>
+                            <li><a href="login.html">Log In</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 STRIDE Shoes Shop Team. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <div aria-live="polite" class="toast" id="toast" role="status"></div>
+    </body>
+</html>
