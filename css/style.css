@@ -1,4 +1,4 @@
-/* STRIDE: colours, layout, cards and forms. */
+/* STRIDE: colours, layout, cards and forms (HTML + CSS + jQuery). */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
 @keyframes shoe-enter {
   from { opacity: 0; transform: translateY(14px); }
@@ -383,3 +383,113 @@ html[data-theme="dark"] .gallery-dot.is-active::after { background: #ffb346; }
 .gallery-dot:hover::after { outline: 1px solid var(--accent); outline-offset: 2px; }
 
 .footer-bottom p { margin: 0; }
+
+/* Final prototype: account pages use the established STRIDE palette and form components. */
+.auth-section { min-height: 60vh; }
+.auth-layout { align-items: start; }
+.auth-copy { max-width: 620px; }
+.auth-copy h1 { overflow-wrap: anywhere; }
+.auth-copy .btn { margin-top: 12px; }
+.auth-feedback { line-height: 1.6; }
+.check-line { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: 12px; cursor: pointer; }
+.check-line input { width: 16px; height: 16px; accent-color: var(--accent); }
+.country-loader { border: 0; cursor: pointer; margin-top: 8px; padding: 0; background: transparent; color: var(--accent); }
+.country-loader:hover { color: var(--ink); }
+.profile-card { display: grid; gap: 20px; }
+.profile-top { display: flex; gap: 17px; align-items: center; }
+.profile-avatar { width: 64px; height: 64px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--soft); border: 1px solid var(--line); color: var(--accent); font: 600 38px "Cormorant Garamond",serif; }
+.profile-top h2 { font-size: clamp(31px,3.5vw,43px); margin: 5px 0 0; overflow-wrap: anywhere; }
+.profile-details { display: grid; margin: 0; }
+.profile-details > div { padding: 14px 0; border-top: 1px solid var(--line); }
+.profile-details dt { color: var(--muted); font-size: 10px; letter-spacing: .12em; font-weight: 700; }
+.profile-details dd { margin: 5px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+.profile-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.profile-actions .btn { flex: 1; min-width: 130px; }
+@media(max-width:850px) { .auth-section { min-height: initial; } }
+@media(max-width:630px) { .profile-card { padding: 20px; } .auth-layout { gap: 32px; } .auth-copy h1 { font-size: clamp(58px,14vw,88px); } }
+
+
+/* FINAL PROTOTYPE V2 — small visual changes; original purple/orange theme remains. */
+/* The button is still aria-pressed, but looks like a sun/moon switch. */
+.theme-toggle { min-width: 104px; padding: 6px 9px; gap: 7px; height: 39px; }
+.theme-icon {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 50px; height: 26px; padding: 0 5px; flex: none;
+  border: 1px solid var(--line); border-radius: 30px;
+  background: var(--soft); position: relative; font-size: 14px;
+}
+.theme-icon::before {
+  content: ''; position: absolute; z-index: 1; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--paper); box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  transition: transform .2s ease;
+}
+.theme-icon .theme-moon, .theme-icon .theme-sun { display: inline; position: relative; z-index: 2; font-size: 12px; line-height: 1; }
+html[data-theme="dark"] .theme-icon::before { transform: translateX(24px); }
+html[data-theme="dark"] .theme-icon { background: #4b3471; }
+.theme-label { font-size: 10px; }
+
+/* Product image area and text area have distinct backgrounds. */
+.product-card { transition: border-color .2s, box-shadow .2s; cursor: pointer; }
+.product-card:hover, .product-card:focus-visible { box-shadow: 0 10px 28px rgba(65,33,95,.14); }
+.product-photo { background: var(--image-bg); }
+.product-info { background: var(--paper); border-top: 1px solid var(--line); }
+.product-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.product-gallery { cursor: grab; }
+.product-gallery:active { cursor: grabbing; }
+.catalogue-heading { font-size: clamp(30px,3vw,43px); margin: 17px 0 23px; }
+
+/* Modal: arrows + a clear colour button for every real product variant. */
+.detail-media { min-width: 0; }
+.detail-photo { position: relative; overflow: hidden; aspect-ratio: 3 / 2; }
+.detail-photo img { transition: opacity .18s; }
+.detail-arrow {
+  position: absolute; z-index: 2; top: 50%; transform: translateY(-50%);
+  display: grid; place-items: center; width: 33px; height: 42px;
+  border: 1px solid var(--line); border-radius: 5px;
+  background: var(--paper); color: var(--ink); font-size: 27px;
+}
+.detail-arrow:hover { color: var(--accent); background: var(--soft); }
+.detail-prev { left: 6px; }
+.detail-next { right: 6px; }
+.detail-variants { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+.detail-variant {
+  padding: 7px 11px; min-height: 35px; font-size: 11px;
+  border: 1px solid var(--line); border-radius: 4px;
+  background: var(--paper); color: var(--ink);
+}
+.detail-variant:hover, .detail-variant[aria-pressed="true"] {
+  border-color: var(--accent); background: var(--soft); color: var(--ink);
+}
+.detail-variant[aria-pressed="true"] { box-shadow: inset 0 -2px 0 var(--accent); }
+
+/* Optional API on Home — no external images or new colour palette. */
+.weather-section { padding: 48px 0 4px; }
+.weather-card {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  padding: clamp(22px,3vw,40px);
+}
+.weather-card h2 { font-size: clamp(40px,4vw,58px); margin: 9px 0 18px; }
+.weather-card p { margin-bottom: 9px; }
+.weather-panel { background: var(--soft); padding: 24px; border-radius: 6px; }
+.weather-panel .btn { margin-bottom: 12px; }
+.weather-status, .weather-suggestion { font-size: 12px; color: var(--muted); }
+.weather-reading { font: 600 clamp(24px,3vw,36px)/1.2 'Cormorant Garamond',serif; }
+.weather-credit { color: var(--muted); font-size: 10px; margin: 8px 0 0; }
+.weather-credit a { text-decoration: underline; }
+@media (max-width:850px) { .weather-card { grid-template-columns: 1fr; } }
+@media (max-width:630px) {
+  .theme-toggle { min-width: 57px; width: 57px; height: 39px; padding: 5px; }
+  .theme-icon { width: 46px; height: 25px; }
+  html[data-theme="dark"] .theme-icon::before { transform: translateX(20px); }
+  .weather-section { padding-top: 24px; }
+  .weather-panel { padding: 18px; }
+  .detail-dialog { padding: 25px 16px 20px; }
+  .detail-layout { gap: 15px; }
+  .detail-arrow { width: 30px; height: 37px; }
+  .detail-variants { gap: 5px; }
+  .detail-variant { padding: 6px 8px; font-size: 10px; }
+}
+@media (max-width:380px) { .theme-toggle { width: 45px; min-width: 45px; } .theme-icon { width: 35px; } html[data-theme="dark"] .theme-icon::before { transform: translateX(9px); } }
+@media (prefers-reduced-motion:reduce) { .theme-icon::before, .product-card, .detail-photo img { transition: none; } }
