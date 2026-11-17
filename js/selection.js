@@ -38,7 +38,7 @@ function changeQuantity(id, amount) {
     const selected = getSelection();
     if (selected[id] === undefined) return;
     let quantity = Number(selected[id]) + amount;
-    if (quantity > 10) quantity = 10;
+    if (quantity > 99) quantity = 99;
     if (quantity <= 0) delete selected[id];
     else selected[id] = quantity;
     saveSelection(selected);
@@ -70,7 +70,7 @@ function showSelection() {
         total += product.price * quantity;
 
         const row = $('<article class="selection-row">');
-        row.append($('<img>').attr('src', getPrimaryImage(product)).attr('alt', product.name));
+        row.append($('<img>').attr('src', getPrimaryImage(product)).attr('alt', product.name + ' shoe in ' + product.variants[0].color + ', side view'));
 
         const info = $('<div>');
         info.append($('<h3>').text(product.name));
