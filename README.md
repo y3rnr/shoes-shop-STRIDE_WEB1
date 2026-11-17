@@ -1,50 +1,55 @@
-STRIDE is a student frontend shoe catalogue built with HTML, CSS, JavaScript and jQuery. It is a demonstration website, not a real shop.
+# STRIDE Shoes Shop
 
-## Team
+**Group:** MT-2501  
+**Team:** Yernur, Abylay, Ramazan
 
-- Yernur — Part 1: Home, navigation, theme and welcome
-- Abylay — Part 2: Catalogue, galleries and selected products
-- Ramazan — Part 3: Contact, FAQ and Registration forms
+STRIDE is a shoe shop website made for the Web Technologies course. It is a student project, not a real online store.
 
-## Run
+## Website
 
-Open `index.html` using VS Code Live Server. Use the navigation links to visit the five pages.
+- Home — main page, popular shoes and weather suggestion
+- Catalogue — shoes, colours, search and selection
+- About — information about STRIDE
+- Contact — contact form and FAQ
+- Sign Up — create a demo account
+- Log In — enter a demo account
+- Profile — see account details and log out
 
-## Project files
+## Team members
 
-| File | Simple purpose |
+| Member | Work |
 | --- | --- |
-| `index.html` | Home, hero, Best Sellers and welcome |
-| `catalogue.html` | Search, category filters and Your Selection |
-| `about.html` | Philosophy, footwear comparison and team |
-| `contact.html` | Contact form and FAQ |
-| `registration.html` | Demo registration form |
-| `css/style.css` | Colours, layout, cards, dark/light theme |
-| `css/responsive.css` | Phone and tablet adjustments |
-| `js/theme-init.js` | Apply the saved theme before CSS loads |
-| `js/site.js` | Mobile menu, theme button, Home welcome, FAQ |
-| `js/data.js` | Eight shoe models, three colours per model |
-| `js/catalogue.js` | Product cards, galleries, Details, search and filters |
-| `js/selection.js` | Buy, selected list, quantity and total |
-| `js/form-validation.js` | Contact and Registration checks with simple `if` statements |
-| `js/vendor/jquery.min.js` | The unchanged official jQuery 3.6.1 library |
+| **Yernur** | Home page, navigation, dark/light mode, profile page, weather section and responsive design |
+| **Abylay** | Catalogue, shoe pictures and colours, search, filters, Details and selection total |
+| **Ramazan** | Contact, FAQ, Sign Up, Log In and form validation |
 
-`home.js` is not missing: its welcome form is now in **`site.js`**. Product cards on Home are created by **`catalogue.js`**, so Home and Catalogue share the same design. The old `navbar.js`, `faq.js`, `jquery-main.js` and `favourites.js` were replaced by `site.js` and `selection.js`.
+## Technologies
+
+- HTML and CSS — pages and design
+- Bootstrap — responsive layout
+- JavaScript and jQuery — buttons, forms and other actions
+- localStorage — saves the theme, shoe selection and demo account on this browser
+- Open-Meteo API — shows Astana weather and suggests a shoe style
+
+## How to open
+
+1. Open the project folder in VS Code.
+2. Open `index.html` with Live Server.
+3. Use the menu to visit other pages.
 
 ## Main features
 
-- Light and dark theme; selected mode remembered in the browser.
-- Eight models and twenty-four colour images; three clickable dots per product.
-- Case-insensitive search and category buttons working together.
-- Details and Buy buttons, one entry per model, `+ / −`, removal and total.
-- Contact FAQ with animated answers.
-- Contact and Registration forms with validation and demo confirmation.
+- Light and dark theme
+- Search and category filters
+- Three colours for each shoe model
+- Product Details and Your Selection
+- Contact form and FAQ
+- Demo registration, login and profile
+- Weather suggestion on the Home page
 
-To add another model, copy one object in `js/data.js` and give it a new ID and three image paths. Prices and shoe descriptions are examples. Contact and Registration do not send information to a server.
+The website does not accept real payments. For Sign Up, use a test email and password, not personal account details.
 
-## Latest layout changes
+## Links
 
-- Catalogue search and category controls have no extra visible captions. Accessibility labels remain in the HTML.
-- Removed the redundant bottom promotion sections from Contact and Registration.
-- Selection note is shown once.
-- Hero decorative circle uses CSS `aspect-ratio: 1 / 1` on all screen sizes.
+GitHub: https://github.com/y3rnr/shoes-shop-STRIDE_WEB1  
+Website: https://y3rnr.github.io/shoes-shop-STRIDE_WEB1/
