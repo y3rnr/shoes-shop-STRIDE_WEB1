@@ -1,7 +1,9 @@
-// One function creates the same product card on Home and Catalogue.
 $(function () {
     function makeCard(product) {
-        const card = $('<article class="product-card">');
+        const card = $('<article class="product-card" tabindex="0">');
+        card.attr('data-id', product.id);
+        card.attr('aria-label', product.name + ': press Enter to view details');
+
         const photo = $('<div class="product-photo">');
         const gallery = $('<div class="product-gallery" tabindex="0">');
         const dots = $('<div class="gallery-dots">');
@@ -11,7 +13,7 @@ $(function () {
             const slide = $('<div class="product-slide">');
             const image = $('<img>');
             image.attr('src', variant.image);
-            image.attr('alt', product.name + ' — ' + variant.color);
+            image.attr('alt', product.name + ' shoe in ' + variant.color + ', side view');
             image.attr('loading', 'lazy');
             slide.append(image);
             slide.append($('<span class="variant-label">').text(variant.color));
@@ -23,6 +25,7 @@ $(function () {
             dots.append(dot);
         }
 
+        // As the gallery scrolls, update the active colour dot.
         function showActiveDot() {
             const width = gallery.get(0).clientWidth;
             if (!width) return;
@@ -42,9 +45,8 @@ $(function () {
         dots.find('button').first().addClass('is-active').attr('aria-pressed', 'true');
 
         photo.append(gallery, dots);
-        if (product.badge) {
-            photo.append($('<span class="product-badge">').text(product.badge));
-        }
+        if (product.badge) photo.append($('<span class="product-badge">').text(product.badge));
+
         const info = $('<div class="product-info">');
         const heading = $('<div class="product-topline">');
         heading.append($('<h3 class="product-title">').text(product.name));
@@ -69,7 +71,7 @@ $(function () {
         return card;
     }
 
-    // Four featured models on Home use exactly the same gallery and buttons.
+    // Create the four Best Sellers on Home.
     const featured = $('#featured-grid');
     if (featured.length) {
         const featuredIds = ['MD-005', 'MD-008', 'MD-001', 'MD-006'];
@@ -79,24 +81,71 @@ $(function () {
         }
     }
 
-    // Details works on Home and Catalogue.
-    $(document).on('click', '.js-view-details', function () {
-        const product = getProduct($(this).attr('data-id'));
+    // Details can preview every colour, not just the first image.
+    let detailProduct = null;
+    let detailIndex = 0;
+
+    function showDetailColour(index) {
+        if (!detailProduct) return;
+        const variants = detailProduct.variants;
+        detailIndex = (index + variants.length) % variants.length;
+        const colour = variants[detailIndex];
+        $('#detail-image').attr('src', colour.image)
+            .attr('alt', detailProduct.name + ' shoe in ' + colour.color + ', side view');
+        $('#detail-color').text(colour.color);
+        $('#detail-variants button').attr('aria-pressed', 'false');
+        $('#detail-variants button').eq(detailIndex).attr('aria-pressed', 'true');
+    }
+
+    function openDetails(product, index) {
         const dialog = document.getElementById('product-dialog');
         if (!product || !dialog) return;
 
-        $('#detail-image').attr('src', getPrimaryImage(product)).attr('alt', product.name);
+        detailProduct = product;
         $('#detail-name').text(product.name);
         $('#detail-description').text(product.description);
         $('#detail-category').text(product.category);
-        $('#detail-color').text(getColorList(product));
         $('#detail-price').text(formatPrice(product.price));
-        $('#detail-add').attr('data-id', product.id);
-        $('#detail-add').prop('disabled', isSelected(product.id));
-        $('#detail-add').text(isSelected(product.id) ? 'Selected' : 'Buy');
-        dialog.showModal();
-    });
+        $('#detail-add').attr('data-id', product.id).prop('disabled', isSelected(product.id))
+            .text(isSelected(product.id) ? 'Selected' : 'Buy');
 
+        // Build one colour button for each variant in the product array.
+        const colours = $('#detail-variants').empty();
+        for (let i = 0; i < product.variants.length; i++) {
+            colours.append($('<button type="button" class="detail-variant">')
+                .attr('data-index', i).attr('aria-pressed', 'false')
+                .text(product.variants[i].color));
+        }
+        showDetailColour(index || 0);
+        if (!dialog.open) dialog.showModal();
+    }
+
+    // Open Details from almost anywhere on a card.
+    // Buy and gallery dots keep their own actions.
+    $(document).on('click', '.product-card', function (event) {
+        if ($(event.target).closest('button, a, input').length) return;
+        const product = getProduct($(this).attr('data-id'));
+        const gallery = $(this).find('.product-gallery').get(0);
+        const index = gallery && gallery.clientWidth ? Math.round(gallery.scrollLeft / gallery.clientWidth) : 0;
+        openDetails(product, index);
+    });
+    $(document).on('keydown', '.product-card', function (event) {
+        // Only act when the card itself is focused, not its inner controls.
+        if (event.target !== this || (event.key !== 'Enter' && event.key !== ' ')) return;
+        event.preventDefault();
+        openDetails(getProduct($(this).attr('data-id')), 0);
+    });
+    $(document).on('click', '.js-view-details', function () {
+        const card = $(this).closest('.product-card');
+        const gallery = card.find('.product-gallery').get(0);
+        const index = gallery && gallery.clientWidth ? Math.round(gallery.scrollLeft / gallery.clientWidth) : 0;
+        openDetails(getProduct($(this).attr('data-id')), index);
+    });
+    $('#detail-variants').on('click', 'button', function () {
+        showDetailColour(Number($(this).attr('data-index')));
+    });
+    $('#detail-prev').on('click', function () { showDetailColour(detailIndex - 1); });
+    $('#detail-next').on('click', function () { showDetailColour(detailIndex + 1); });
     $('.close-btn').on('click', function () {
         document.getElementById('product-dialog').close();
     });
@@ -137,4 +186,8 @@ $(function () {
         showProducts();
     });
     showProducts();
+
+    // A weather suggestion can link directly to a model's Details dialog.
+    const directModel = new URLSearchParams(window.location.search).get('details');
+    if (directModel) openDetails(getProduct(directModel), 0);
 });
