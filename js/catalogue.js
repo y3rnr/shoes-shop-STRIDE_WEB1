@@ -1,3 +1,6 @@
+// The same card is used on Home and Catalogue.
+// Update the picture when the user picks a colour.
+// Buy and colour buttons have their own actions.
 $(function () {
     function makeCard(product) {
         const card = $('<article class="product-card" tabindex="0">');
@@ -25,7 +28,6 @@ $(function () {
             dots.append(dot);
         }
 
-        // As the gallery scrolls, update the active colour dot.
         function showActiveDot() {
             const width = gallery.get(0).clientWidth;
             if (!width) return;
@@ -71,7 +73,6 @@ $(function () {
         return card;
     }
 
-    // Create the four Best Sellers on Home.
     const featured = $('#featured-grid');
     if (featured.length) {
         const featuredIds = ['MD-005', 'MD-008', 'MD-001', 'MD-006'];
@@ -81,7 +82,6 @@ $(function () {
         }
     }
 
-    // Details can preview every colour, not just the first image.
     let detailProduct = null;
     let detailIndex = 0;
 
@@ -109,7 +109,6 @@ $(function () {
         $('#detail-add').attr('data-id', product.id).prop('disabled', isSelected(product.id))
             .text(isSelected(product.id) ? 'Selected' : 'Buy');
 
-        // Build one colour button for each variant in the product array.
         const colours = $('#detail-variants').empty();
         for (let i = 0; i < product.variants.length; i++) {
             colours.append($('<button type="button" class="detail-variant">')
@@ -120,8 +119,6 @@ $(function () {
         if (!dialog.open) dialog.showModal();
     }
 
-    // Open Details from almost anywhere on a card.
-    // Buy and gallery dots keep their own actions.
     $(document).on('click', '.product-card', function (event) {
         if ($(event.target).closest('button, a, input').length) return;
         const product = getProduct($(this).attr('data-id'));
@@ -130,7 +127,6 @@ $(function () {
         openDetails(product, index);
     });
     $(document).on('keydown', '.product-card', function (event) {
-        // Only act when the card itself is focused, not its inner controls.
         if (event.target !== this || (event.key !== 'Enter' && event.key !== ' ')) return;
         event.preventDefault();
         openDetails(getProduct($(this).attr('data-id')), 0);
@@ -187,7 +183,6 @@ $(function () {
     });
     showProducts();
 
-    // A weather suggestion can link directly to a model's Details dialog.
     const directModel = new URLSearchParams(window.location.search).get('details');
     if (directModel) openDetails(getProduct(directModel), 0);
 });
